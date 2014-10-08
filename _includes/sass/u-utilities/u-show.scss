@@ -1,0 +1,29 @@
+/*
+
+  creates:
+  .u-show
+  .u-show__inline
+  .u-show__inlineBlock
+
+  for each breakpoint
+
+*/
+
+/* loop breakpoints */
+@each $bp-name, $bp-value in $u-breakpoints {
+
+  @include breakpoint($bp-name) {
+
+    .#{$bp-name}_u-show {
+      display: block;
+    }
+    .#{$bp-name}_u-show__inline {
+      display: inline;
+    }
+    .#{$bp-name}_u-show__inlineBlock {
+      display: inline-block;
+    }
+
+  }
+
+}

@@ -1,0 +1,20 @@
+
+
+/* base hide */
+
+.u-hide {
+  display: none;
+}
+
+/* loop breakpoints */
+@each $bp-name, $bp-value in $u-breakpoints {
+
+  @include breakpoint($bp-name) {
+
+    .#{$bp-name}_u-hide {
+      display: none;
+    }
+
+  }
+
+}

@@ -1,0 +1,25 @@
+
+
+
+
+/* base offset */
+@for $i from 1 through $g-number-of-columns {
+  .g-offset#{$i} {
+    margin-left: percentage( $i / $g-number-of-columns ) - 0.00001;
+  }
+}
+
+/* loop breakpoints */
+@each $bp-name, $bp-value in $u-breakpoints {
+
+
+  /* width dependent on media query */
+  @include breakpoint($bp-name) {
+    @for $i from 1 through $g-number-of-columns {
+      .#{$bp-name}_g-offset#{$i} {
+        margin-left: percentage( $i / $g-number-of-columns ) - 0.00001;
+      }
+    }
+  }
+
+}

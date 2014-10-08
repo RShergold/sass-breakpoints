@@ -1,0 +1,43 @@
+
+
+
+$g-number-of-columns: 12 !default;
+
+
+
+
+%g-col {
+  float: left;
+  min-height: 1px;
+  display: inline;
+}
+
+
+/* base columns */
+@for $i from 1 through $g-number-of-columns {
+  .g-col#{$i} {
+    @extend %g-col;
+    width: percentage( $i / $g-number-of-columns ) - 0.00001;
+  }
+}
+
+/* loop breakpoints */
+@each $bp-name, $bp-value in $u-breakpoints {
+
+  /* defaults for each breakpoint col */
+  @for $i from 1 through $g-number-of-columns {
+    .#{$bp-name}_g-col#{$i} {
+      @extend %g-col;
+    }
+  }
+
+  /* width dependent on media query */
+  @include breakpoint($bp-name) {
+    @for $i from 1 through $g-number-of-columns {
+      .#{$bp-name}_g-col#{$i} {
+        width: percentage( $i / $g-number-of-columns ) - 0.00001;
+      }
+    }
+  }
+
+}

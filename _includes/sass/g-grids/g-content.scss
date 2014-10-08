@@ -1,0 +1,22 @@
+/*
+
+
+*/
+
+
+
+.g-content {
+  margin-left: auto;
+  margin-right: auto;
+
+  margin: auto;
+
+  @each $bp-name, $bp-value in $u-breakpoints {
+
+    @include breakpoint($bp-name) {
+      width: $bp-value;
+    }
+
+  }
+
+}

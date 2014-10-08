@@ -1,0 +1,33 @@
+/*
+
+=variables
+
+  $u-breakpoints: (
+    sm: 768px,
+    md: 992px,
+    lg: 1200px
+  );
+
+=/
+
+*/
+
+
+
+@mixin breakpoint($bp-name) {
+
+  @if variable-exists(ie_breakpoint) {
+
+    @if map-get($u-breakpoints, $ie_breakpoint) >= map-get($u-breakpoints, $bp-name) {
+      @content
+    }
+
+  } @else {
+
+    @media (min-width: map-get($u-breakpoints, $bp-name)) {
+      @content
+    }
+
+  }
+
+}
