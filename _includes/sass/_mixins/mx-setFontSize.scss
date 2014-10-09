@@ -1,0 +1,10 @@
+
+
+@mixin set_font_size( $font-size ){
+  @if length($font-size) == 1 {
+    font-size: $font-size;
+  } @else {
+    font-size: nth($font-size, 1);
+    line-height: nth($font-size, 2);
+  }
+}

@@ -12,8 +12,6 @@
 /* loop breakpoints */
 @each $bp-name, $bp-value in $u-breakpoints {
 
-
-  /* width dependent on media query */
   @include breakpoint($bp-name) {
     @for $i from 1 through $g-number-of-columns {
       .#{$bp-name}_g-offset#{$i} {

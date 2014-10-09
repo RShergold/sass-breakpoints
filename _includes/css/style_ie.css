@@ -1,3 +1,5 @@
+/* available spacing classes (values in rems) */
+/* do we need extra breakpoint specific space classes? eg md_s-top1 */
 /*
 
 =variables
@@ -11,15 +13,118 @@
 =/
 
 */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* as above but without font. this is set by _base/font.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: inherit; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
+
+= require
+
+mx-breakpoint
+mx-setFontSize
+
+*/
+/* set default font-size for page (mobile) */
+html, body {
+  font-size: 10px;
+  line-height: 1.5em; }
+
+/* set default font-size for each breakpoint IF they have been defined */
+/* loop breakpoints */
+html, body {
+  font-size: 16px;
+  line-height: 1.5em; }
+
+html, body {
+  font-size: 21px; }
+
+/*
+
+= variables
+
+$t-sizes: (
+  base: 10px 1.5em,
+  large: 21px 1em,
+  small: 10px
+);
+
+$t-sizes_breakpoints: (
+  base: (
+    sm: 16px
+  ),
+  large: (
+    sm: 16px,
+    lg: 50px 2em
+  )
+);
+
+=/
+= require
+
+mx-breakpoint
+mx-setFontSize
+
+=/
+*/
 .t-sizebase {
   /* base sizes */
-  font-size: 16px;
+  font-size: 10px;
   line-height: 1.5em;
   /* any breakpoint modifications */
-  font-size: 10px;
-  line-height: 1em;
-  font-size: 38px;
-  line-height: 3em; }
+  font-size: 16px;
+  line-height: 1.5em;
+  font-size: 21px; }
 
 /* end .t-size */
 .t-sizelarge {
@@ -27,7 +132,9 @@
   font-size: 21px;
   line-height: 1em;
   /* any breakpoint modifications */
-  font-size: 16px; }
+  font-size: 16px;
+  font-size: 50px;
+  line-height: 2em; }
 
 /* end .t-size */
 .t-sizesmall {
@@ -45,132 +152,216 @@
   margin-right: auto;
   margin: auto;
   width: 768px;
-  width: 992px; }
+  width: 992px;
+  width: 1200px; }
 
 .g-row {
   overflow: hidden; }
 
 .g-col1, .g-col2, .g-col3, .g-col4, .g-col5, .g-col6, .g-col7, .g-col8, .g-col9, .g-col10, .g-col11, .g-col12, .sm_g-col1, .sm_g-col2, .sm_g-col3, .sm_g-col4, .sm_g-col5, .sm_g-col6, .sm_g-col7, .sm_g-col8, .sm_g-col9, .sm_g-col10, .sm_g-col11, .sm_g-col12, .md_g-col1, .md_g-col2, .md_g-col3, .md_g-col4, .md_g-col5, .md_g-col6, .md_g-col7, .md_g-col8, .md_g-col9, .md_g-col10, .md_g-col11, .md_g-col12, .lg_g-col1, .lg_g-col2, .lg_g-col3, .lg_g-col4, .lg_g-col5, .lg_g-col6, .lg_g-col7, .lg_g-col8, .lg_g-col9, .lg_g-col10, .lg_g-col11, .lg_g-col12 {
-  float: left;
   min-height: 1px;
-  display: inline; }
+  display: block; }
 
 /* base columns */
 .g-col1 {
+  float: left;
   width: 8.33332%; }
 
 .g-col2 {
+  float: left;
   width: 16.66666%; }
 
 .g-col3 {
+  float: left;
   width: 24.99999%; }
 
 .g-col4 {
+  float: left;
   width: 33.33332%; }
 
 .g-col5 {
+  float: left;
   width: 41.66666%; }
 
 .g-col6 {
+  float: left;
   width: 49.99999%; }
 
 .g-col7 {
+  float: left;
   width: 58.33332%; }
 
 .g-col8 {
+  float: left;
   width: 66.66666%; }
 
 .g-col9 {
+  float: left;
   width: 74.99999%; }
 
 .g-col10 {
+  float: left;
   width: 83.33332%; }
 
 .g-col11 {
+  float: left;
   width: 91.66666%; }
 
 .g-col12 {
+  float: left;
   width: 99.99999%; }
 
 /* loop breakpoints */
 /* defaults for each breakpoint col */
 /* width dependent on media query */
 .sm_g-col1 {
+  float: left;
   width: 8.33332%; }
 
 .sm_g-col2 {
+  float: left;
   width: 16.66666%; }
 
 .sm_g-col3 {
+  float: left;
   width: 24.99999%; }
 
 .sm_g-col4 {
+  float: left;
   width: 33.33332%; }
 
 .sm_g-col5 {
+  float: left;
   width: 41.66666%; }
 
 .sm_g-col6 {
+  float: left;
   width: 49.99999%; }
 
 .sm_g-col7 {
+  float: left;
   width: 58.33332%; }
 
 .sm_g-col8 {
+  float: left;
   width: 66.66666%; }
 
 .sm_g-col9 {
+  float: left;
   width: 74.99999%; }
 
 .sm_g-col10 {
+  float: left;
   width: 83.33332%; }
 
 .sm_g-col11 {
+  float: left;
   width: 91.66666%; }
 
 .sm_g-col12 {
+  float: left;
   width: 99.99999%; }
 
 /* defaults for each breakpoint col */
 /* width dependent on media query */
 .md_g-col1 {
+  float: left;
   width: 8.33332%; }
 
 .md_g-col2 {
+  float: left;
   width: 16.66666%; }
 
 .md_g-col3 {
+  float: left;
   width: 24.99999%; }
 
 .md_g-col4 {
+  float: left;
   width: 33.33332%; }
 
 .md_g-col5 {
+  float: left;
   width: 41.66666%; }
 
 .md_g-col6 {
+  float: left;
   width: 49.99999%; }
 
 .md_g-col7 {
+  float: left;
   width: 58.33332%; }
 
 .md_g-col8 {
+  float: left;
   width: 66.66666%; }
 
 .md_g-col9 {
+  float: left;
   width: 74.99999%; }
 
 .md_g-col10 {
+  float: left;
   width: 83.33332%; }
 
 .md_g-col11 {
+  float: left;
   width: 91.66666%; }
 
 .md_g-col12 {
+  float: left;
   width: 99.99999%; }
 
 /* defaults for each breakpoint col */
 /* width dependent on media query */
+.lg_g-col1 {
+  float: left;
+  width: 8.33332%; }
+
+.lg_g-col2 {
+  float: left;
+  width: 16.66666%; }
+
+.lg_g-col3 {
+  float: left;
+  width: 24.99999%; }
+
+.lg_g-col4 {
+  float: left;
+  width: 33.33332%; }
+
+.lg_g-col5 {
+  float: left;
+  width: 41.66666%; }
+
+.lg_g-col6 {
+  float: left;
+  width: 49.99999%; }
+
+.lg_g-col7 {
+  float: left;
+  width: 58.33332%; }
+
+.lg_g-col8 {
+  float: left;
+  width: 66.66666%; }
+
+.lg_g-col9 {
+  float: left;
+  width: 74.99999%; }
+
+.lg_g-col10 {
+  float: left;
+  width: 83.33332%; }
+
+.lg_g-col11 {
+  float: left;
+  width: 91.66666%; }
+
+.lg_g-col12 {
+  float: left;
+  width: 99.99999%; }
+
 /* base offset */
 .g-offset1 {
   margin-left: 8.33332%; }
@@ -209,7 +400,6 @@
   margin-left: 99.99999%; }
 
 /* loop breakpoints */
-/* width dependent on media query */
 .sm_g-offset1 {
   margin-left: 8.33332%; }
 
@@ -246,7 +436,6 @@
 .sm_g-offset12 {
   margin-left: 99.99999%; }
 
-/* width dependent on media query */
 .md_g-offset1 {
   margin-left: 8.33332%; }
 
@@ -283,7 +472,182 @@
 .md_g-offset12 {
   margin-left: 99.99999%; }
 
-/* width dependent on media query */
+.lg_g-offset1 {
+  margin-left: 8.33332%; }
+
+.lg_g-offset2 {
+  margin-left: 16.66666%; }
+
+.lg_g-offset3 {
+  margin-left: 24.99999%; }
+
+.lg_g-offset4 {
+  margin-left: 33.33332%; }
+
+.lg_g-offset5 {
+  margin-left: 41.66666%; }
+
+.lg_g-offset6 {
+  margin-left: 49.99999%; }
+
+.lg_g-offset7 {
+  margin-left: 58.33332%; }
+
+.lg_g-offset8 {
+  margin-left: 66.66666%; }
+
+.lg_g-offset9 {
+  margin-left: 74.99999%; }
+
+.lg_g-offset10 {
+  margin-left: 83.33332%; }
+
+.lg_g-offset11 {
+  margin-left: 91.66666%; }
+
+.lg_g-offset12 {
+  margin-left: 99.99999%; }
+
+/*
+
+=requires
+
+  mx-breakpoint.scss
+
+*/
+/*
+  this function takes a rem value and returns is pixel value
+  based on the base font size of the named breakpoint.
+  used for older versions of ie
+*/
+/*
+  This mixin takes a list of requested spacing values and creates
+  every possibe combination of spacing class for each breakpoint
+*/
+/*
+
+
+= require
+
+mx-spacings
+
+*/
+/* fall back for older ie */
+/* base spacing - spaced to ie_breakpoint fontsize */
+.s-down {
+  margin-bottom: 10.5px; }
+
+.s-down1 {
+  margin-bottom: 21px; }
+
+.s-down2 {
+  margin-bottom: 42px; }
+
+/* breakpoint spacing - spaced to ie_breakpoint fontsize */
+/* breakpoint loop */
+/* requested-spacings loop */
+.sm_s-down {
+  margin-bottom: 10.5px; }
+
+.sm_s-down1 {
+  margin-bottom: 21px; }
+
+.sm_s-down2 {
+  margin-bottom: 42px; }
+
+/* end loop */
+/* requested-spacings loop */
+.md_s-down {
+  margin-bottom: 10.5px; }
+
+.md_s-down1 {
+  margin-bottom: 21px; }
+
+.md_s-down2 {
+  margin-bottom: 42px; }
+
+/* end loop */
+/* end loop */
+/*
+
+
+= require
+
+mx-spacings
+
+*/
+/* fall back for older ie */
+/* base spacing - spaced to ie_breakpoint fontsize */
+.s-top {
+  padding-top: 10.5px; }
+
+.s-top1 {
+  padding-top: 21px; }
+
+.s-top2 {
+  padding-top: 42px; }
+
+/* breakpoint spacing - spaced to ie_breakpoint fontsize */
+/*
+
+
+= require
+
+mx-spacings
+
+*/
+/* fall back for older ie */
+/* base spacing - spaced to ie_breakpoint fontsize */
+.s-bottom {
+  padding-bottom: 10.5px; }
+
+.s-bottom1 {
+  padding-bottom: 21px; }
+
+.s-bottom2 {
+  padding-bottom: 42px; }
+
+/* breakpoint spacing - spaced to ie_breakpoint fontsize */
+/*
+
+
+= require
+
+mx-spacings
+
+*/
+/* fall back for older ie */
+/* base spacing - spaced to ie_breakpoint fontsize */
+.s-left {
+  padding-left: 10.5px; }
+
+.s-left1 {
+  padding-left: 21px; }
+
+.s-left2 {
+  padding-left: 42px; }
+
+/* breakpoint spacing - spaced to ie_breakpoint fontsize */
+/*
+
+
+= require
+
+mx-spacings
+
+*/
+/* fall back for older ie */
+/* base spacing - spaced to ie_breakpoint fontsize */
+.s-right {
+  padding-right: 10.5px; }
+
+.s-right1 {
+  padding-right: 21px; }
+
+.s-right2 {
+  padding-right: 42px; }
+
+/* breakpoint spacing - spaced to ie_breakpoint fontsize */
 /* base hide */
 .u-hide {
   display: none; }
@@ -293,6 +657,9 @@
   display: none; }
 
 .md_u-hide {
+  display: none; }
+
+.lg_u-hide {
   display: none; }
 
 /*
@@ -309,21 +676,26 @@
 .sm_u-show {
   display: block; }
 
-.sm_u-show__inline {
+.sm_u-show--inline {
   display: inline; }
 
-.sm_u-show__inlineBlock {
+.sm_u-show--inlineBlock {
   display: inline-block; }
 
 .md_u-show {
   display: block; }
 
-.md_u-show__inline {
+.md_u-show--inline {
   display: inline; }
 
-.md_u-show__inlineBlock {
+.md_u-show--inlineBlock {
   display: inline-block; }
 
-/*
-  any styles for ie7 & ie8 here
-*/
+.lg_u-show {
+  display: block; }
+
+.lg_u-show--inline {
+  display: inline; }
+
+.lg_u-show--inlineBlock {
+  display: inline-block; }

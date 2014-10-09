@@ -1,0 +1,139 @@
+/*
+
+=requires
+
+  mx-breakpoint.scss
+
+*/
+
+$t-sizes_breakpoints: () !default;
+$t-sizes_breakpoints: map-merge( (base: ()), $t-sizes_breakpoints );
+
+$is_old_ie: false !default;
+
+/*
+  this function takes a rem value and returns is pixel value
+  based on the base font size of the named breakpoint.
+  used for older versions of ie
+*/
+
+@function rem_to_px($rem-value: 1, $breakpoint-name: false) {
+
+  $breakpoint_font_sizes: map-get($t-sizes_breakpoints, base);
+
+  @if not $breakpoint-name {
+
+    /* get base font size */
+    $font-size: map-get($t-sizes, base);
+    $font-size: nth($font-size, 1);
+    @return $font-size * $rem-value;
+
+  } @else if not map-has-key($breakpoint_font_sizes, $breakpoint-name){
+
+    //get previous breakpoints font-size
+    $index: index(map-keys($u-breakpoints), $breakpoint-name) - 1;
+
+    @if $index == 0 {
+
+      $font-size: map-get($t-sizes, base);
+      $font-size: nth($font-size, 1);
+      @return $font-size * $rem-value;
+
+    } @else {
+      /* some naughty recursion */
+      @warn "recurse #{$index}";
+      $prev-breakpoint-name: nth(map-keys($u-breakpoints), $index);
+      @return rem_to_px( $rem-value, $prev-breakpoint-name );
+    }
+
+  } @else {
+
+    $font-size: map-get($breakpoint_font_sizes, $breakpoint-name);
+    $font-size: nth($font-size, 1);
+    @return $font-size * $rem-value;
+  }
+
+
+
+}
+
+
+
+
+/*
+  This mixin takes a list of requested spacing values and creates
+  every possibe combination of spacing class for each breakpoint
+*/
+
+@mixin spacings( $class-root-name, $css-attribute-to-use, $requested-spacings, $create-breakpoint-classes: false) {
+
+
+  @if not $is_old_ie {
+
+    /* base spacing (not breakpoint)*/
+    @each $s-name, $s-value in $requested-spacings {
+      .#{$class-root-name}#{$s-name} {
+        #{$css-attribute-to-use}: #{$s-value}rem;
+      }
+    }
+
+    /* classes for each requested-spacing and breakpoint */
+    @if $create-breakpoint-classes {
+
+      /* breakpoint loop */
+      @each $bp-name, $bp-font-size in map-get($t-sizes_breakpoints,base) {
+        @include breakpoint($bp-name, false) {
+
+          /* requested-spacings loop */
+          @each $s-name, $s-value in $requested-spacings {
+            .#{$bp-name}_#{$class-root-name}#{$s-name} {
+              #{$css-attribute-to-use}: #{$s-value}rem;
+            }
+          }/* end loop */
+
+        }
+      }/* end loop */
+
+    }
+
+  } @else {
+
+    /* fall back for older ie */
+
+    /* base spacing - spaced to ie_breakpoint fontsize */
+    @each $s-name, $s-value in $requested-spacings {
+      .#{$class-root-name}#{$s-name} {
+        #{$css-attribute-to-use}: rem_to_px($s-value, $ie_breakpoint);
+      }
+    }
+
+    /* breakpoint spacing - spaced to ie_breakpoint fontsize */
+    @if $create-breakpoint-classes {
+
+      $found-breakpoint: false;
+      /* breakpoint loop */
+      @each $bp-name, $bp-font-size in map-get($t-sizes_breakpoints,base) {
+
+        @if not $found-breakpoint {
+          /* requested-spacings loop */
+          @each $s-name, $s-value in $requested-spacings {
+            .#{$bp-name}_#{$class-root-name}#{$s-name} {
+              #{$css-attribute-to-use}: rem_to_px($s-value, $ie_breakpoint);
+            }
+          }/* end loop */
+
+
+          @if $bp-name == $ie_breakpoint {
+            $found-breakpoint: true;
+          }
+        }
+
+      }/* end loop */
+
+    }
+
+  }
+
+
+
+}

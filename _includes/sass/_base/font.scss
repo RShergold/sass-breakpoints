@@ -1,0 +1,37 @@
+/*
+
+= require
+
+mx-breakpoint
+mx-setFontSize
+
+*/
+
+
+
+
+/* set default font-size for page (mobile) */
+$t-sizes: () !default;
+$t-sizes: map-merge( (base: 16px 1.5em), $t-sizes );
+
+$font-size: map-get($t-sizes,base);
+
+html,body {
+  @include set_font_size( $font-size );
+}
+
+
+/* set default font-size for each breakpoint IF they have been defined */
+$t-sizes_breakpoints: () !default;
+$t-sizes_breakpoints: map-merge( (base: ()), $t-sizes_breakpoints );
+
+/* loop breakpoints */
+@each $bp-name, $bp-font-size in map-get($t-sizes_breakpoints,base) {
+
+  html,body {
+    @include breakpoint($bp-name) {
+      @include set_font_size( $bp-font-size );
+    }
+  }
+
+}

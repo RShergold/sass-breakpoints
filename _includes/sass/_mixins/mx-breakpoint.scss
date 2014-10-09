@@ -14,9 +14,9 @@
 
 
 
-@mixin breakpoint($bp-name) {
+@mixin breakpoint($bp-name, $ie_fallback: true) {
 
-  @if variable-exists(ie_breakpoint) {
+  @if $ie_fallback and variable-exists(ie_breakpoint) {
 
     @if map-get($u-breakpoints, $ie_breakpoint) >= map-get($u-breakpoints, $bp-name) {
       @content

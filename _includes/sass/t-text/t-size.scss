@@ -1,4 +1,31 @@
+/*
 
+= variables
+
+$t-sizes: (
+  base: 10px 1.5em,
+  large: 21px 1em,
+  small: 10px
+);
+
+$t-sizes_breakpoints: (
+  base: (
+    sm: 16px
+  ),
+  large: (
+    sm: 16px,
+    lg: 50px 2em
+  )
+);
+
+=/
+= require
+
+mx-breakpoint
+mx-setFontSize
+
+=/
+*/
 
 
 
@@ -6,27 +33,18 @@ $t-sizes: () !default;
 
 $t-sizes_breakpoints: () !default;
 
-@mixin t-size_and_line_height( $font-size ){
-  @if length($font-size) == 1 {
-    font-size: $font-size;
-  } @else {
-    font-size: nth($font-size, 1);
-    line-height: nth($font-size, 2);
-  }
-}
-
 @each $font-size-name, $font-size in $t-sizes {
 
   .t-size#{$font-size-name} {
 
     /* base sizes */
-    @include t-size_and_line_height( $font-size );
+    @include set_font_size( $font-size );
 
     /* any breakpoint modifications */
     @if map-has-key($t-sizes_breakpoints, $font-size-name) {
       @each $bp-name, $font-size in map-get($t-sizes_breakpoints, $font-size-name) {
         @include breakpoint($bp-name) {
-          @include t-size_and_line_height( $font-size );
+          @include set_font_size( $font-size );
         }
       }
     }

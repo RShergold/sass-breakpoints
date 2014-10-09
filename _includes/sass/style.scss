@@ -7,15 +7,15 @@ $u-breakpoints: (
 );
 
 $t-sizes: (
-  base: 16px 1.5em,
+  base: 10px 1.5em,
   large: 21px 1em,
   small: 10px
 );
 
 $t-sizes_breakpoints: (
   base: (
-    sm: 10px 1em,
-    md: 38px 3em
+    sm: 16px 1.5em,
+    md: 21px
   ),
   large: (
     sm: 16px,
@@ -23,7 +23,54 @@ $t-sizes_breakpoints: (
   )
 );
 
+
+/* available spacing classes (values in rems) */
+
+$s-down:(
+  '': 0.5,
+   1: 1,
+   2: 2
+);
+
+
+$s-top:(
+  '': 0.5,
+  1: 1,
+  2: 2
+);
+
+$s-bottom:(
+  '': 0.5,
+  1: 1,
+  2: 2
+);
+
+$s-left:(
+  '': 0.5,
+  1: 1,
+  2: 2
+);
+
+$s-right:(
+  '': 0.5,
+  1: 1,
+  2: 2
+);
+
+/* do we need extra breakpoint specific space classes? eg md_s-top1 */
+$s-down-breakpoints: true;
+$s-top-breakpoints: false;
+$s-bottom-breakpoints: false;
+$s-left-breakpoints: false;
+$s-right-breakpoints: false;
+
+
 @import '_mixins/mx-breakpoint';
+@import '_mixins/mx-setFontSize';
+
+
+@import '_base/reset';
+@import '_base/font';
 
 @import 't-text/t-size';
 
@@ -32,5 +79,19 @@ $t-sizes_breakpoints: (
 @import 'g-grids/g-col';
 @import 'g-grids/g-offset';
 
+@import '_mixins/mx-spacings';
+@import 's-spacing/s-down';
+@import 's-spacing/s-top';
+@import 's-spacing/s-bottom';
+@import 's-spacing/s-left';
+@import 's-spacing/s-right';
+
 @import 'u-utilities/u-hide';
 @import 'u-utilities/u-show';
+
+
+
+
+
+
+
