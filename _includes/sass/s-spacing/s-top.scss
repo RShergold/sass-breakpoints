@@ -8,4 +8,7 @@ mx-spacings
 */
 
 
+$s-top: () !default;
+$s-top-breakpoints: false !default;
+
 @include spacings( 's-top', padding-top, $s-top, $s-top-breakpoints );

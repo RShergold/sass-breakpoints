@@ -8,4 +8,7 @@ mx-spacings
 */
 
 
+$s-right: () !default;
+$s-right-breakpoints: false !default;
+
 @include spacings( 's-right', padding-right, $s-right, $s-right-breakpoints );

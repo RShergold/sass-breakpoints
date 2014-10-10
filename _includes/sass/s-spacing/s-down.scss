@@ -8,4 +8,7 @@ mx-spacings
 */
 
 
+$s-down: () !default;
+$s-down-breakpoints: false !default;
+
 @include spacings( 's-down', margin-bottom, $s-down, $s-down-breakpoints );

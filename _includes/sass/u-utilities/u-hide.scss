@@ -6,6 +6,9 @@
   display: none;
 }
 
+
+$u-breakpoints: () !default;
+
 /* loop breakpoints */
 @each $bp-name, $bp-value in $u-breakpoints {
 
