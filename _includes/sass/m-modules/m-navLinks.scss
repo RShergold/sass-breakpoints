@@ -1,0 +1,13 @@
+
+
+.m-navLinks {
+
+
+
+  li {
+    @extend .s-left;
+    @extend .s-right;
+    float: left;
+  }
+
+}

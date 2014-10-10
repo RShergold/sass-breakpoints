@@ -2,3 +2,29 @@
 .g-row {
   overflow: hidden;
 }
+
+
+
+
+$is_old_ie: false !default;
+$s-left: ('':0.5) !default;
+$s-right: ('':0.5) !default;
+
+
+// in rem
+$row-gutter-space: 0.5 !default;
+
+
+
+.g-row--gutter {
+  @extend .g-row;
+
+  @if $is_old_ie {
+    margin-left: rem_to_px(-$row-gutter-space, $ie_breakpoint);
+    margin-right: rem_to_px(-$row-gutter-space, $ie_breakpoint);
+  } @else {
+    margin-left: -#{$row-gutter-space}rem;
+    margin-right: -#{$row-gutter-space}rem;
+  }
+
+}

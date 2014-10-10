@@ -1,3 +1,4 @@
+/* content side padding */
 /* available spacing classes (values in rems) */
 /* do we need extra breakpoint specific space classes? eg md_s-top1 */
 /*
@@ -12,6 +13,22 @@
 
 =/
 
+*/
+/*
+
+=requires
+
+  mx-breakpoint.scss
+
+*/
+/*
+  this function takes a rem value and returns is pixel value
+  based on the base font size of the named breakpoint.
+  used for older versions of ie
+*/
+/*
+  This mixin takes a list of requested spacing values and creates
+  every possibe combination of spacing class for each breakpoint
 */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -77,7 +94,7 @@ mx-setFontSize
 */
 /* set default font-size for page (mobile) */
 html, body {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.5em; }
 
 /* set default font-size for each breakpoint IF they have been defined */
@@ -85,11 +102,12 @@ html, body {
 @media (min-width: 768px) {
   html, body {
     font-size: 16px;
-    line-height: 1.5em; } }
+    line-height: 1.3em; } }
 
 @media (min-width: 992px) {
   html, body {
-    font-size: 21px; } }
+    font-size: 21px;
+    line-height: 1.2em; } }
 
 /*
 
@@ -121,33 +139,34 @@ mx-setFontSize
 */
 .t-sizebase {
   /* base sizes */
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.5em;
   /* any breakpoint modifications */ }
   @media (min-width: 768px) {
     .t-sizebase {
       font-size: 16px;
-      line-height: 1.5em; } }
+      line-height: 1.3em; } }
   @media (min-width: 992px) {
     .t-sizebase {
-      font-size: 21px; } }
+      font-size: 21px;
+      line-height: 1.2em; } }
 
 /* end .t-size */
-.t-sizelarge {
+.t-sizeLarge {
   /* base sizes */
-  font-size: 21px;
+  font-size: 61px;
   line-height: 1em;
   /* any breakpoint modifications */ }
   @media (min-width: 768px) {
-    .t-sizelarge {
+    .t-sizeLarge {
       font-size: 16px; } }
   @media (min-width: 1200px) {
-    .t-sizelarge {
+    .t-sizeLarge {
       font-size: 50px;
       line-height: 2em; } }
 
 /* end .t-size */
-.t-sizesmall {
+.t-sizeSmall {
   /* base sizes */
   font-size: 10px;
   /* any breakpoint modifications */ }
@@ -160,7 +179,9 @@ mx-setFontSize
 .g-content {
   margin-left: auto;
   margin-right: auto;
-  margin: auto; }
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  box-sizing: border-box; }
   @media (min-width: 768px) {
     .g-content {
       width: 768px; } }
@@ -171,8 +192,12 @@ mx-setFontSize
     .g-content {
       width: 1200px; } }
 
-.g-row {
+.g-row, .g-row--gutter {
   overflow: hidden; }
+
+.g-row--gutter {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem; }
 
 .g-col1, .g-col2, .g-col3, .g-col4, .g-col5, .g-col6, .g-col7, .g-col8, .g-col9, .g-col10, .g-col11, .g-col12, .sm_g-col1, .sm_g-col2, .sm_g-col3, .sm_g-col4, .sm_g-col5, .sm_g-col6, .sm_g-col7, .sm_g-col8, .sm_g-col9, .sm_g-col10, .sm_g-col11, .sm_g-col12, .md_g-col1, .md_g-col2, .md_g-col3, .md_g-col4, .md_g-col5, .md_g-col6, .md_g-col7, .md_g-col8, .md_g-col9, .md_g-col10, .md_g-col11, .md_g-col12, .lg_g-col1, .lg_g-col2, .lg_g-col3, .lg_g-col4, .lg_g-col5, .lg_g-col6, .lg_g-col7, .lg_g-col8, .lg_g-col9, .lg_g-col10, .lg_g-col11, .lg_g-col12 {
   min-height: 1px;
@@ -526,22 +551,6 @@ mx-setFontSize
     margin-left: 99.99999%; } }
 /*
 
-=requires
-
-  mx-breakpoint.scss
-
-*/
-/*
-  this function takes a rem value and returns is pixel value
-  based on the base font size of the named breakpoint.
-  used for older versions of ie
-*/
-/*
-  This mixin takes a list of requested spacing values and creates
-  every possibe combination of spacing class for each breakpoint
-*/
-/*
-
 
 = require
 
@@ -632,7 +641,7 @@ mx-spacings
 
 */
 /* base spacing (not breakpoint)*/
-.s-left {
+.s-left, .m-navLinks li {
   padding-left: 0.5rem; }
 
 .s-left1 {
@@ -651,7 +660,7 @@ mx-spacings
 
 */
 /* base spacing (not breakpoint)*/
-.s-right {
+.s-right, .m-navLinks li {
   padding-right: 0.5rem; }
 
 .s-right1 {
@@ -713,3 +722,12 @@ mx-spacings
 
   .lg_u-show--inlineBlock {
     display: inline-block; } }
+.u-responsiveImg {
+  display: block;
+  width: 100%; }
+
+.m-banner {
+  background-size: cover; }
+
+.m-navLinks li {
+  float: left; }

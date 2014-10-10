@@ -30,6 +30,7 @@ mx-setFontSize
 
 
 $t-sizes: () !default;
+$t-sizes: map-merge( (base: 16px 1.5em), $t-sizes );
 
 $t-sizes_breakpoints: () !default;
 

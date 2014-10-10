@@ -7,25 +7,26 @@ $u-breakpoints: (
 );
 
 $t-sizes: (
-  base: 10px 1.5em,
-  large: 21px 1em,
-  small: 10px
+  base: 14px 1.5em,
+  Large: 61px 1em,
+  Small: 10px
 );
 
 $t-sizes_breakpoints: (
   base: (
-    sm: 16px 1.5em,
-    md: 21px
+    sm: 16px 1.3em,
+    md: 21px 1.2em
   ),
-  large: (
+  Large: (
     sm: 16px,
     lg: 50px 2em
   )
 );
 
+/* content side padding */
+$content-side-padding: 0.5rem;
 
 /* available spacing classes (values in rems) */
-
 $s-down:(
   '': 0.5,
    1: 1,

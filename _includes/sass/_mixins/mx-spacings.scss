@@ -41,7 +41,7 @@ $is_old_ie: false !default;
 
     } @else {
       /* some naughty recursion */
-      @warn "recurse #{$index}";
+      //@warn "recurse #{$index}";
       $prev-breakpoint-name: nth(map-keys($u-breakpoints), $index);
       @return rem_to_px( $rem-value, $prev-breakpoint-name );
     }

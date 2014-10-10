@@ -12,7 +12,11 @@ $u-breakpoints: () !default;
   margin-left: auto;
   margin-right: auto;
 
-  margin: auto;
+  @if variable-exists( content-side-padding ) {
+    padding-left: $content-side-padding;
+    padding-right: $content-side-padding;
+    box-sizing: border-box;
+  }
 
   @each $bp-name, $bp-value in $u-breakpoints {
 

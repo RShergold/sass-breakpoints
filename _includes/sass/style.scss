@@ -3,7 +3,7 @@
 
 @import '_mixins/mx-breakpoint';
 @import '_mixins/mx-setFontSize';
-
+@import '_mixins/mx-spacings';
 
 @import '_base/reset';
 @import '_base/font';
@@ -15,7 +15,6 @@
 @import 'g-grids/g-col';
 @import 'g-grids/g-offset';
 
-@import '_mixins/mx-spacings';
 @import 's-spacing/s-down';
 @import 's-spacing/s-top';
 @import 's-spacing/s-bottom';
@@ -24,6 +23,10 @@
 
 @import 'u-utilities/u-hide';
 @import 'u-utilities/u-show';
+@import 'u-utilities/u-responsiveImg';
+
+@import 'm-modules/m-banner';
+@import 'm-modules/m-navLinks';
 
 
 
